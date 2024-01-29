@@ -14,7 +14,11 @@ This repository contains my personal Linux configuration files for tmux, nvim, i
 
 Before you begin, ensure you have met the following requirements:
 
-- A fresh installation of Fedora Linux with i3wm.
+- A fresh installation of Fedora Linux with [i3wm](https://i3wm.org/).
+
+https://fedoraproject.org/spins/i3/
+
+(https://download.fedoraproject.org/pub/fedora/linux/releases/39/Spins/x86_64/iso/Fedora-i3-Live-x86_64-39-1.5.iso)
 
 ## Installation
 
