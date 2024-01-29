@@ -29,5 +29,5 @@ To get started, follow these steps:
    ```bash
    git clone https://github.com/Constantin-Hentgen/My-Linux-Setup.git
     cd My-Linux-Setup
-    ./install.sh
+    ./run.sh
     ```

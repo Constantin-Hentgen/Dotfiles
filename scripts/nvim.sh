@@ -1,5 +1,6 @@
 #!/bin/bash
 
-# nvim
-
-    # relocate the nvim/ folder at the right place
+cd ~/.config
+mkdir -p nvim
+sudo rm -rf nvim
+cp -r ~/My-Linux-Setup/nvim .

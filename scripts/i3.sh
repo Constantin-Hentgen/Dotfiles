@@ -1,15 +1,5 @@
 #!/bin/bash
 
-# i3
-
-    # add the config files at the right place
-
-
-
-
-# OS keybindings
-        
-        # esc on capslock
-
-
-# 
+cd ~/.config
+rm -rf i3
+cp -r ~/My-Linux-Setup/.config/i3 .

@@ -1,5 +1,4 @@
 #!/bin/bash
-# TO DO AT THE END
 
 # make zsh default
 chsh -s $(which zsh)
