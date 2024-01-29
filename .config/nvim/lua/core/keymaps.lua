@@ -1,1 +1,1 @@
-require("bepo").setup()
+require("core.bepo").setup()

@@ -17,7 +17,26 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 sudo dnf install -y flatpack
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-sudo dnf install -y flatpak nvim tmux brave-browser git logseq
+# Development Tools
+sudo dnf install -y gcc gcc-c++ ninja bat python
+
+# Package Management and Version Control Tools
+sudo dnf install -y flatpak git
+
+# Productivity Tools
+sudo dnf install -y nvim tmux logseq
+
+# Internet Browsing Tool
+sudo dnf install -y brave-browser
+
+# Networking tools
+sudo dnf install -y nmap, tcpdump
+
+# System Resource Monitoring Tool
+sudo dnf install -y btop
+
+# Quick Reference Tool
+sudo dnf install -y tldr
 
 #  install spotify
 flatpak install flathub com.spotify.Client
