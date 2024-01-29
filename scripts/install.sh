@@ -1,4 +1,6 @@
 
+#!/bin/bash
+
 # install and enable flathub
 sudo dnf install -y flatpack
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
