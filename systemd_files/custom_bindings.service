@@ -1,0 +1,10 @@
+[Unit]
+Description=Apply custom key bindings
+
+[Service]
+Type=oneshot
+ExecStart=~/startup_scripts/bindings.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
