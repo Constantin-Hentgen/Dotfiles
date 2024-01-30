@@ -27,7 +27,7 @@ replace_config() {
         echo "Existing configuration found for $1. Backing up to $backup_dir"
         mv "$config_dir" "$backup_dir"
     fi
-    cp -r "$HOME/My-Linux-Setup/.config/$1" "$HOME/.config/"
+    cp -r "$HOME/dotfiles/.config/$1" "$HOME/.config/"
 }
 
 # Install and Configure i3lock-color

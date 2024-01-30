@@ -27,7 +27,7 @@ To get started, follow these steps:
 1. Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/Constantin-Hentgen/My-Linux-Setup.git
-cd My-Linux-Setup
+git clone https://github.com/Constantin-Hentgen/dotfiles.git
+cd dotfiles
 ./run.sh
 ```
