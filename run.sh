@@ -4,8 +4,6 @@ set -e
 
 source "$HOME/Dotfiles/utils/constants.sh"
 
-cd ~
-
 echo "Starting setup..."
 
 echo "Step 1: Installation"

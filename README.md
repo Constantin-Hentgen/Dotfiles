@@ -20,6 +20,11 @@ https://fedoraproject.org/spins/i3/
 
 (https://download.fedoraproject.org/pub/fedora/linux/releases/39/Spins/x86_64/iso/Fedora-i3-Live-x86_64-39-1.5.iso)
 
+
+```bash
+setxkbmap -layout fr -variant bepo_afnor
+```
+
 ## Installation
 
 To get started, follow these steps:
@@ -27,6 +32,7 @@ To get started, follow these steps:
 1. Clone this repository to your local machine:
 
 ```bash
+cd ~
 git clone https://github.com/Constantin-Hentgen/Dotfiles.git
 cd Dotfiles
 chmod +x run.sh

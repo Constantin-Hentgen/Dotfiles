@@ -5,7 +5,10 @@ set -e
 source "$HOME/Dotfiles/utils/functions.sh"
 
 echo "Updating system packages and repositories..."
+sudo dnf clean packages
+
 sudo dnf update -y
+sudo dnf clean packages
 
 echo "Adding Visual Studio Code repository"
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
@@ -15,7 +18,7 @@ install_dnf_packages flatpak
 add_flatpak_repo flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Development Tools
-install_dnf_packages zsh gcc gcc-c++ ninja-build bat python3
+install_dnf_packages curl zsh gcc gcc-c++ ninja-build bat python3
 
 # Package Management and Version Control Tools
 install_dnf_packages git tldr
@@ -33,7 +36,6 @@ install_dnf_packages brave-browser
 install_flatpak_app com.spotify.Client
 
 # Visual Studio Code
-import_gpg_key https://packages.microsoft.com/keys/microsoft.asc
 add_vscode_repo
 sudo dnf check-update
 install_dnf_packages code

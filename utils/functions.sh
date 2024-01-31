@@ -44,6 +44,11 @@ add_flatpak_repo () {
     flatpak remote-add --if-not-exists "$1" "$2"
 }
 
+add_vscode_repo () {
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+    sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+}
+
 install_flatpak_app () {
     echo "Installing Flatpak application: $1"
     flatpak install -y flathub "$1"
