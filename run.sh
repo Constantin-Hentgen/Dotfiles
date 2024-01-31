@@ -11,6 +11,7 @@ source "$REPO_CONFIG_SCRIPTS_DIR/install.sh"
 
 echo "Step 2: Configuration"
 source "$REPO_CONFIG_SCRIPTS_DIR/shell.sh"
+source "$REPO_CONFIG_SCRIPTS_DIR/i3.sh"
 
 echo "Step 3: Set up startup scripts"
 source "$REPO_CONFIG_SCRIPTS_DIR/cronjob.sh"

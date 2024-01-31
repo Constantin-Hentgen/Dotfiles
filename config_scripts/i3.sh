@@ -40,5 +40,4 @@ link_dir "$REPO_DIR/xborder/config.json" "$HOME/border/config.json"
 # rofi configuration
 link_dir "$REPO_DIR/rofi" "$HOME/.config/rofi"
 
-
 echo "i3 Setup completed successfully!"

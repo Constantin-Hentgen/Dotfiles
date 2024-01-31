@@ -8,7 +8,7 @@ link_dir () {
 
     if [ -d "$dest" ]; then
         echo "Existing configuration found at $dest (being deleted)"
-        sudo rm $dest
+        sudo rm -rf $dest
     fi
 
     echo "Creating symbolic links for $dest"
