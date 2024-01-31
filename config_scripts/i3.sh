@@ -7,7 +7,7 @@ source "$HOME/Dotfiles/utils/constants.sh"
 
 # Configure i3lock-color
 configure_i3lock_color() {
-    local repo_dir="$HOME/$USER/i3lock-color"
+    local repo_dir="$HOME/i3lock-color"
 
     # Check if the repository directory already exists
     if [ -d "$repo_dir" ]; then
@@ -21,7 +21,7 @@ configure_i3lock_color() {
 
 # Configure xborder
 configure_xborder() {
-    local repo_dir="$HOME/$USER/xborder"
+    local repo_dir="$HOME/xborder"
 
     # Check if the repository directory already exists
     if [ -d "$repo_dir" ]; then
