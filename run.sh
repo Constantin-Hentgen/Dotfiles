@@ -2,7 +2,9 @@
 
 set -e
 
-source ./utils/constants.sh
+source "$HOME/Dotfiles/utils/constants.sh"
+
+cd ~
 
 echo "Starting setup..."
 

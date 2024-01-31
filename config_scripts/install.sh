@@ -2,7 +2,7 @@
 
 set -e
 
-source ../utils/functions.sh
+source "$HOME/Dotfiles/utils/functions.sh"
 
 echo "Updating system packages and repositories..."
 sudo dnf update -y

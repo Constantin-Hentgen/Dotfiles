@@ -2,7 +2,7 @@
 
 set -e
 
-source ../utils/functions.sh
+source "$HOME/Dotfiles/utils/functions.sh"
 
 # Set Zsh as the default shell
 set_default_shell () {

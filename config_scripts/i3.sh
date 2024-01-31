@@ -2,7 +2,7 @@
 
 set -e
 
-source ../utils/functions.sh
+source "$HOME/Dotfiles/utils/functions.sh"
 
 # Install and Configure i3lock-color
 install_i3lock_color() {

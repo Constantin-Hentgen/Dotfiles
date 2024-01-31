@@ -2,8 +2,8 @@
 
 set -e
 
-source ../utils/functions.sh
-source ../utils/constants.sh
+source "$HOME/Dotfiles/utils/functions.sh"
+source "$HOME/Dotfiles/utils/constants.sh"
 
 link_service () {
     echo "Setting up systemd service: $1"
