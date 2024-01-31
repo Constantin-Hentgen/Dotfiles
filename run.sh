@@ -13,6 +13,6 @@ echo "Step 2: Configuration"
 source "$REPO_CONFIG_SCRIPTS_DIR/shell.sh"
 
 echo "Step 3: Set up startup scripts"
-setup_systemd_service "$SYSTEMD_FILES_DIR/custom_bindings.service"
+source "$REPO_CONFIG_SCRIPTS_DIR/systemd.sh"
 
 echo "Setup completed successfully!"
