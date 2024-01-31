@@ -2,9 +2,9 @@
 
 # Link Configurations with Symbolic Links
 link_config () {
-    echo "Replacing configuration for: $2"
     local src_dir="$1"
     local dest_dir="$2"
+    echo "Replacing configuration for: $dest_dir"
 
     if [ -d "$dest_dir" ]; then
         echo "Existing configuration found at $dest_dir (being deleted)"
