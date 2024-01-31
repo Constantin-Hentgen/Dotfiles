@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Link Configurations with Symbolic Links
-link_config () {
+link_file () {
     local src="$1"
     local dest="$2"
     echo "Linking configuration from $src to $dest"

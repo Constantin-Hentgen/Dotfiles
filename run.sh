@@ -13,6 +13,6 @@ echo "Step 2: Configuration"
 source "$REPO_CONFIG_SCRIPTS_DIR/shell.sh"
 
 echo "Step 3: Set up startup scripts"
-source "$REPO_CONFIG_SCRIPTS_DIR/systemd.sh"
+source "$REPO_CONFIG_SCRIPTS_DIR/cronjob.sh"
 
 echo "Setup completed successfully!"
