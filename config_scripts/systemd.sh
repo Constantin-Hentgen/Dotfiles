@@ -7,12 +7,12 @@ source "$HOME/Dotfiles/utils/constants.sh"
 
 link_service () {
     echo "Setting up systemd service: $1"
-    link_config "$REPO_SYSTEMD_FILES/$1" "/etc/systemd/system/$1"
+    link_config "$1" "/etc/systemd/system/$(basename $1)"
 }
 
 enable_and_start () {
-    sudo systemctl enable "$1"
-    sudo systemctl start "$1"
+    sudo systemctl enable $(basename "$1")
+    sudo systemctl start $(basename "$1")
 }
 
 # RUN

@@ -2,17 +2,17 @@
 
 # Link Configurations with Symbolic Links
 link_config () {
-    local src_dir="$1"
-    local dest_dir="$2"
-    echo "Replacing configuration for: $dest_dir"
+    local src="$1"
+    local dest="$2"
+    echo "Linking configuration from $src to $dest"
 
-    if [ -d "$dest_dir" ]; then
-        echo "Existing configuration found at $dest_dir (being deleted)"
-        rm $dest_dir
+    if [ -d "$dest" ]; then
+        echo "Existing configuration found at $dest (being deleted)"
+        rm $dest
     fi
 
-    echo "Creating symbolic links for $dest_dir"
-    ln -s "$src_dir" "$dest_dir"
+    echo "Creating symbolic links for $dest"
+    ln -s "$src" "$dest"
 }
 
 clone_git_repo () {
