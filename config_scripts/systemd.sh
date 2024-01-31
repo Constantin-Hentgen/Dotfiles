@@ -7,7 +7,7 @@ source "$HOME/Dotfiles/utils/constants.sh"
 
 link_service () {
     echo "Setting up systemd service: $1"
-    link_config "$SYSTEMD_FILES_DIR" "/etc/systemd/system/$1"
+    link_config "$SYSTEMD_FILES_DIR/$1" "/etc/systemd/system/$1"
 }
 
 enable_and_start () {
@@ -19,6 +19,6 @@ enable_and_start () {
 
 for service in "$SYSTEMD_FILES_DIR"/*
 do
-  link_config $service
+  link_service $service 
   enable $service
 done
