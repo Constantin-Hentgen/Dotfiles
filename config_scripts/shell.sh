@@ -63,6 +63,10 @@ install_zsh_autosuggestions() {
     fi
 }
 
+# terminator configuration
+link_dir "$REPO_DOT_CONFIG_DIR/terminator" "$HOME/.config/terminator"
+
+# tmux configuration
 
 # RUN
 set_default_shell

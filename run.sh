@@ -15,4 +15,4 @@ source "$REPO_CONFIG_SCRIPTS_DIR/shell.sh"
 echo "Step 3: Set up startup scripts"
 source "$REPO_CONFIG_SCRIPTS_DIR/cronjob.sh"
 
-echo "Setup completed successfully!"
+echo "Setup completed successfully! (reboot recommended)"

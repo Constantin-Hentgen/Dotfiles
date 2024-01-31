@@ -15,13 +15,13 @@ install_dnf_packages flatpak
 add_flatpak_repo flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Development Tools
-install_dnf_packages curl zsh gcc gcc-c++ ninja-build bat python3
+install_dnf_packages curl zsh gcc gcc-c++ ninja-build bat python3 cairo-devel pkg-config python3-devel autoconf automake cairo-devel fontconfig gcc libev-devel libjpeg-turbo-devel libXinerama libxkbcommon-devel libxkbcommon-x11-devel libXrandr pam-devel pkgconf xcb-util-image-devel xcb-util-xrm-devel
 
 # Package Management and Version Control Tools
 install_dnf_packages git tldr
 
 # Productivity Tools
-install_dnf_packages terminator tmux polybar picom polybar
+install_dnf_packages terminator tmux polybar picom polybar rofi papirus-icon-theme
 
 # Internet Brave Browser
 install_dnf_packages dnf-plugins-core

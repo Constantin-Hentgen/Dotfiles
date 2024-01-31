@@ -3,23 +3,17 @@
 set -e
 
 source "$HOME/Dotfiles/utils/functions.sh"
+source "$HOME/Dotfiles/utils/constants.sh"
 
-# Install and Configure i3lock-color
-install_i3lock_color() {
-    install_dnf_packages autoconf automake cairo-devel fontconfig gcc libev-devel libjpeg-turbo-devel libXinerama libxkbcommon-devel libxkbcommon-x11-devel libXrandr pam-devel pkgconf xcb-util-image-devel xcb-util-xrm-devel
+# Configure i3lock-color
+configure_i3lock_color() {
     local repo_dir="$HOME/$USER/i3lock-color"
     clone_git_repo "https://github.com/Raymo111/i3lock-color.git" "$repo_dir"
     "$repo_dir/install-i3lock-color.sh"
 }
 
-# Install Theme and Icons
-install_theme_and_icons() {
-    install_dnf_packages papirus-icon-theme
-}
-
-# Install and Configure xborder
-install_xborder() {
-    install_dnf_packages cairo-devel pkg-config python3-devel
+# Configure xborder
+configure_xborder() {
     local repo_dir="$HOME/$USER/xborder"
     clone_git_repo "https://github.com/deter0/xborder" "$repo_dir"
     chmod +x "$repo_dir/xborders"
@@ -27,19 +21,24 @@ install_xborder() {
     "$repo_dir/xborders" --help
 }
 
-# Replace i3 configuration
-replace_config "i3"
+# i3 configuration
+link_dir "$REPO_DOT_CONFIG_DIR/i3" "$HOME/.config/i3"
 
-# Change lock screen
-install_i3lock_color
+# picom configuration
+link_dir "$REPO_DOT_CONFIG_DIR/picom" "$HOME/.config/picom"
 
-# Change theme and icons
-install_theme_and_icons
+# i3lock_color configuration
+configure_i3lock_color
 
-# Configure borders
-install_xborder
+# polybar configuration
+link_dir "$REPO_DOT_CONFIG_DIR/polybar" "$HOME/.config/polybar"
 
-# Install rofi
-install_dnf_packages rofi
+# xborder configuration
+configure_xborder
+link_dir "$REPO_DIR/xborder/config.json" "$HOME/border/config.json"
+
+# rofi configuration
+link_dir "$REPO_DIR/rofi" "$HOME/.config/rofi"
+
 
 echo "i3 Setup completed successfully!"
