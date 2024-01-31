@@ -31,11 +31,27 @@ install_powerlevel10k() {
 }
 
 # Copy .oh-my-zsh config folder
-# Note: You need to specify where and how you're copying this. Assuming you have a backup ready:
-copy_oh_my_zsh_config() {
-    echo "Copying .oh-my-zsh config folder"
-    cp -r /path/to/your/backup/.oh-my-zsh ~/
+link_oh_my_zsh_config() {
+    echo "Linking .oh-my-zsh config folder"
+    local backup_dir="$HOME/.oh-my-zsh-backup-$(date +%Y%m%d%H%M%S)"
+    local repo_dir="/path/to/your/backup/.oh-my-zsh"
+
+    # Backup existing .oh-my-zsh directory, if it exists
+    if [ -d "$HOME/.oh-my-zsh" ]; then
+        echo "Existing .oh-my-zsh directory found. Backing up to $backup_dir"
+        mv "$HOME/.oh-my-zsh" "$backup_dir"
+    fi
+
+    # Create symbolic link
+    if [ -d "$repo_dir" ]; then
+        echo "Creating symbolic link for .oh-my-zsh"
+        ln -s "$repo_dir" "$HOME/.oh-my-zsh"
+    else
+        echo "Error: Repository directory $repo_dir not found"
+        exit 1
+    fi
 }
+
 
 # Install Zsh autosuggestions plugin
 install_zsh_autosuggestions() {

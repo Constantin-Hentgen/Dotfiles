@@ -31,14 +31,14 @@ setup_systemd_service() {
 
 echo "Starting setup..."
 
-# Step 1: Install tools
+# Step 1: Installation
 run_script "$SCRIPTS_DIR/install.sh"
 
-# Step 2: Configure environment
+# Step 2: Configuration
 run_script "$SCRIPTS_DIR/i3.sh"
 run_script "$SCRIPTS_DIR/shell.sh"
 
-# Set up startup scripts
+# Step 3: Set up startup scripts
 setup_systemd_service "$SYSTEMD_FILES_DIR/custom_bindings.service"
 
 echo "Setup completed successfully!"

@@ -1,0 +1,20 @@
+[global_config]
+  borderless = True
+[keybindings]
+[profiles]
+  [[default]]
+    icon_bell = False
+    font = JetBrains Mono Bold 16
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_lines = 10000
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]

@@ -27,7 +27,8 @@ To get started, follow these steps:
 1. Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/Constantin-Hentgen/dotfiles.git
-cd dotfiles
+git clone https://github.com/Constantin-Hentgen/Dotfiles.git
+cd Dotfiles
+chmod +x run.sh
 ./run.sh
 ```
