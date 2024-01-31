@@ -8,11 +8,11 @@ link_config () {
 
     if [ -d "$dest" ]; then
         echo "Existing configuration found at $dest (being deleted)"
-        rm $dest
+        sudo rm $dest
     fi
 
     echo "Creating symbolic links for $dest"
-    ln -s "$src" "$dest"
+    sudo ln -s "$src" "$dest"
 }
 
 clone_git_repo () {
