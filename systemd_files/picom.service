@@ -1,9 +1,9 @@
 [Unit]
-Description=Apply custom key bindings
+Description=Make window rounded
 
 [Service]
 Type=oneshot
-ExecStart=~/startup_scripts/bindings.sh
+ExecStart=~/Dotfiles/startup_scripts/picom.sh
 RemainAfterExit=yes
 
 [Install]

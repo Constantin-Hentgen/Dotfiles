@@ -1,46 +1,8 @@
 #!/bin/bash
 
-# Exit on any error
 set -e
 
-# Function to install DNF packages
-install_dnf_packages() {
-    echo "Installing packages: $@"
-    sudo dnf install -y "$@"
-}
-
-# Function to clone and enter a Git repository
-clone_git_repo() {
-    local repo_url="$1"
-    local dest_dir="$2"
-    echo "Cloning repository: $repo_url"
-    git clone "$repo_url" "$dest_dir"
-    cd "$dest_dir"
-}
-
-# Backup and Replace Configuration with Symbolic Links
-replace_config() {
-    echo "Replacing configuration for: $1"
-    local config_dir="$HOME/.config/$1"
-    local backup_dir="$config_dir-backup-$(date +%Y%m%d%H%M%S)"
-    local repo_dir="$HOME/dotfiles/.config/$1"
-
-    # Backup existing configuration, if it exists
-    if [ -d "$config_dir" ]; then
-        echo "Existing configuration found for $1. Backing up to $backup_dir"
-        mv "$config_dir" "$backup_dir"
-    fi
-
-    # Create symbolic links
-    if [ -d "$repo_dir" ]; then
-        echo "Creating symbolic links for $1"
-        ln -s "$repo_dir" "$config_dir"
-    else
-        echo "Error: Repository directory $repo_dir not found"
-        exit 1
-    fi
-}
-
+source ../utils/functions.sh
 
 # Install and Configure i3lock-color
 install_i3lock_color() {
@@ -64,7 +26,6 @@ install_xborder() {
     pip install -r "$repo_dir/requirements.txt"
     "$repo_dir/xborders" --help
 }
-
 
 # Replace i3 configuration
 replace_config "i3"

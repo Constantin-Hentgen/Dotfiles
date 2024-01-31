@@ -1,0 +1,10 @@
+[Unit]
+Description=Launch the beautiful i3 status bar
+
+[Service]
+Type=oneshot
+ExecStart=~/Dotfiles/startup_scripts/polybar.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
