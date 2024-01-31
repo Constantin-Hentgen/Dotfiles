@@ -40,14 +40,29 @@ install_powerlevel10k() {
     fi
 }
 
-
 # Install Zsh autosuggestions plugin
-install_zsh_autosuggestions () {
+install_zsh_autosuggestions() {
     echo "Installing Zsh autosuggestions plugin"
     local dest="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
-    clone_git_repo "https://github.com/zsh-users/zsh-autosuggestions" "$dest"
-    echo "source $dest/zsh-aut"
+    local zshrc="$HOME/.zshrc"
+    local source_line="source $dest/zsh-autosuggestions.zsh"
+
+    # Check if Zsh autosuggestions is already cloned
+    if [ -d "$dest" ]; then
+        echo "Zsh autosuggestions plugin is already installed. Skipping clone."
+    else
+        clone_git_repo "https://github.com/zsh-users/zsh-autosuggestions" "$dest"
+    fi
+
+    # Check if .zshrc already sources Zsh autosuggestions
+    if grep -q "$source_line" "$zshrc"; then
+        echo "Zsh autosuggestions plugin is already sourced in .zshrc. Skipping."
+    else
+        echo "$source_line" >> "$zshrc"
+        echo "Zsh autosuggestions plugin source added to .zshrc."
+    fi
 }
+
 
 # RUN
 set_default_shell
