@@ -17,11 +17,29 @@ set_default_shell () {
 }
 
 # Install Powerlevel10k theme for Zsh
-install_powerlevel10k () {
+install_powerlevel10k() {
     echo "Installing Powerlevel10k theme"
-    clone_git_repo "https://github.com/romkatv/powerlevel10k.git" "$HOME/powerlevel10k"
-    echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
+
+    local p10k_dir="$HOME/powerlevel10k"
+    local zshrc="$HOME/.zshrc"
+    local p10k_theme_line='source ~/powerlevel10k/powerlevel10k.zsh-theme'
+
+    # Check if Powerlevel10k is already installed
+    if [ -d "$p10k_dir" ]; then
+        echo "Powerlevel10k is already installed. Skipping clone."
+    else
+        clone_git_repo "https://github.com/romkatv/powerlevel10k.git" "$p10k_dir"
+    fi
+
+    # Check if .zshrc already sources Powerlevel10k
+    if grep -q "$p10k_theme_line" "$zshrc"; then
+        echo "Powerlevel10k theme is already sourced in .zshrc. Skipping."
+    else
+        echo "$p10k_theme_line" >> "$zshrc"
+        echo "Powerlevel10k theme source added to .zshrc."
+    fi
 }
+
 
 # Install Zsh autosuggestions plugin
 install_zsh_autosuggestions () {
