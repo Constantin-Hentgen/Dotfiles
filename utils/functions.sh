@@ -7,14 +7,12 @@ link_config () {
     local dest_dir="$2"
 
     if [ -d "$dest_dir" ]; then
-        echo "Existing configuration found at $dest_dir."
+        echo "Existing configuration found at $dest_dir (being deleted)"
         rm $dest_dir
-        echo "Creating symbolic links for $dest_dir"
-        ln -s "$src_dir" "$dest_dir"
-    else
-        echo "Error: Repository directory $dest_dir not found"
-        exit 1
     fi
+
+    echo "Creating symbolic links for $dest_dir"
+    ln -s "$src_dir" "$dest_dir"
 }
 
 clone_git_repo () {
