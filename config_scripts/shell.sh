@@ -84,8 +84,36 @@ link_dir "$REPO_DOT_CONFIG_DIR/terminator" "$HOME/.config/terminator"
 
 # tmux configuration
 
+# ZSH completion improved
+add_zshrc_lines() {
+  local zshrc_file="$HOME/.zshrc"
+
+  # Check if .zshrc already exists
+  if [ -f "$zshrc_file" ]; then
+    # Check if the lines are already in .zshrc
+    if grep -q "autoload -Uz compinit && compinit" "$zshrc_file" && grep -q "zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'" "$zshrc_file"; then
+      echo "Lines are already in $zshrc_file."
+    else
+      # Append the lines to .zshrc
+      echo "Adding lines to $zshrc_file..."
+      echo "autoload -Uz compinit && compinit" >> "$zshrc_file"
+      echo "zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'" >> "$zshrc_file"
+      echo "Lines added to $zshrc_file."
+    fi
+  else
+    # .zshrc doesn't exist, create it and add the lines
+    echo "Creating $zshrc_file..."
+    touch "$zshrc_file"
+    echo "Adding lines to $zshrc_file..."
+    echo "autoload -Uz compinit && compinit" >> "$zshrc_file"
+    echo "zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'" >> "$zshrc_file"
+    echo "Lines added to $zshrc_file."
+  fi
+}
+
 # RUN
 set_default_shell
 install_powerlevel10k
 install_zsh_autosuggestions
 create_zsh_history
+add_zshrc_lines
