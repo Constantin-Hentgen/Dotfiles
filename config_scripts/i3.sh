@@ -7,16 +7,8 @@ source "$HOME/Dotfiles/utils/constants.sh"
 
 # Configure i3lock-color
 configure_i3lock_color() {
-    local repo_dir="$HOME/i3lock-color"
-
-    # Check if the repository directory already exists
-    if [ -d "$repo_dir" ]; then
-        echo "i3lock-color repository already exists at $repo_dir. Skipping clone."
-    else
-        clone_git_repo "https://github.com/Raymo111/i3lock-color.git" "$repo_dir"
-    fi
-
-    "$repo_dir/install-i3lock-color.sh"
+    clone_git_repo "https://github.com/Raymo111/i3lock-color.git" "$HOME/i3lock_color"
+    "$HOME/i3lock_color/install-i3lock-color.sh"
 }
 
 # Configure xborder
