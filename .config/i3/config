@@ -7,10 +7,6 @@
 
 exec_always picom -f
 
-# bind escape on capslock
-exec --no-startup-id xmodmap -e "clear lock"
-exec --no-startup-id xmodmap -e "keysym Caps Lock = Escape"
-
 # custom status bar (polybar)
 exec_always --no-startup-id polybar
 

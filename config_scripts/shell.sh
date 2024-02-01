@@ -117,3 +117,4 @@ install_powerlevel10k
 install_zsh_autosuggestions
 create_zsh_history
 add_zshrc_lines
+link_dir "$REPO_DIR/xkb.conf" "/etc/X11/xorg.conf.d/00-keyboard.conf"
