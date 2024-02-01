@@ -68,10 +68,8 @@ create_zsh_history() {
   local zshrc_file=~/.zshrc
   local histsize=10000
   local savehist=10000
-
-  if [ ! -e "$history_file" ]; then
-    touch "$history_file"
-  fi
+  
+  touch "$history_file"
 
   # Append the lines to the end of .zshrc
   echo "HISTFILE=~/.zsh_history" >> "$zshrc_file"

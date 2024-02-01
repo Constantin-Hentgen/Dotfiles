@@ -4,7 +4,7 @@
 [profiles]
   [[default]]
     icon_bell = False
-    font = JetBrains Mono Bold 16
+    font = Fira Code weight=450 16
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_lines = 10000

@@ -23,7 +23,6 @@
   "workbench.editor.closeEmptyGroups": true,
   "update.mode": "manual",
   "editor.smoothScrolling": true,
-  "workbench.editor.untitled.hint": "hidden",
   "workbench.iconTheme": "material-icon-theme",
 	"git.ignoreRebaseWarning": true,
   "extensions.ignoreRecommendations": true,
@@ -102,4 +101,5 @@
 "workbench.startupEditor": "none",
 "python.defaultInterpreterPath": "C:\\Users\\Constantin\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
 "window.zoomLevel": 1,
+"workbench.editor.empty.hint": "hidden",
 }

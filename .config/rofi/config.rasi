@@ -1,5 +1,5 @@
 configuration {
-  display-drun: "Applications:";
+  display-drun: "";
   display-window: "Windows:";
   drun-display-format: "{name}";
   font: "JetBrainsMono Nerd Font Medium 16";
@@ -13,9 +13,9 @@ configuration {
 @theme "/dev/null"
 
 * {
-  bg: #282A2E66;
-  bg-alt: #373B4166;
-  bg-selected: #C5C8C666;
+  bg: #282A2E95;
+  bg-alt: #373B4195;
+  bg-selected: #C5C8C695;
 
   fg: #cdd6f4;
   fg-alt: #7f849c;
@@ -40,7 +40,7 @@ element {
 }
 
 element selected {
-  text-color: @fg;
+  text-color: @bg;
   background-color: @bg-selected;
 }
 
@@ -70,7 +70,7 @@ inputbar {
 listview {
   background-color: @bg;
   columns: 1;
-  lines: 10;
+  lines: 5;
 }
 
 mainbox {

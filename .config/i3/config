@@ -19,7 +19,7 @@ exec_always --no-startup-id /home/constantin/xborder/xborders --smart-hide-borde
 
 
 set $mod Mod1
-default_border pixel 5
+default_border pixel 0
 default_floating_border pixel 0
 
 font pango:JetBrainsMono Nerd Font 14
@@ -159,7 +159,7 @@ bindsym $mod+Shift+o exec "~/.i3/lock.sh"
 exec_always feh --bg-fill ~/Pictures/wallpaper.jpg
 
 # default gaps
-gaps inner 5
+gaps inner 15
 gaps outer 0
 
 # gaps
@@ -199,6 +199,7 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "$mode_gaps"
         bindsym Escape mode "default"
 }
+
 mode "$mode_gaps_inner" {
         bindsym plus  gaps inner current plus 5
         bindsym minus gaps inner current minus 5
@@ -284,12 +285,4 @@ mode "$mode_gaps_left" {
         bindsym Escape mode "default"
 }
 
-set $ws1 "1: Spotify"
-set $ws2 "2: Vscode"
-set $ws3 "4: Brave"
-set $ws5 "5: Terminal"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+for_window [class="^.*"] border pixel 0
