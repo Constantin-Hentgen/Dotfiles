@@ -9,5 +9,6 @@ source "$HOME/Dotfiles/utils/constants.sh"
 for script in "$REPO_STARTUP_SCRIPTS_DIR"/*
 do
     chmod +x "$script"
+    crontab -r 2>/dev/null
     (crontab -l 2>/dev/null; echo "@reboot /bin/bash $script") | crontab -
 done

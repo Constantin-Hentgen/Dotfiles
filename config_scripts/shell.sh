@@ -63,6 +63,24 @@ install_zsh_autosuggestions() {
     fi
 }
 
+create_zsh_history() {
+  local history_file=~/.zsh_history
+  local zshrc_file=~/.zshrc
+  local histsize=10000
+  local savehist=10000
+
+  if [ ! -e "$history_file" ]; then
+    touch "$history_file"
+  fi
+
+  # Append the lines to the end of .zshrc
+  echo "HISTFILE=~/.zsh_history" >> "$zshrc_file"
+  echo "HISTSIZE=10000" >> "$zshrc_file"
+  echo "SAVEHIST=10000" >> "$zshrc_file"
+  echo "setopt appendhistory" >> "$zshrc_file"
+}
+
+
 # terminator configuration
 link_dir "$REPO_DOT_CONFIG_DIR/terminator" "$HOME/.config/terminator"
 
@@ -72,3 +90,4 @@ link_dir "$REPO_DOT_CONFIG_DIR/terminator" "$HOME/.config/terminator"
 set_default_shell
 install_powerlevel10k
 install_zsh_autosuggestions
+create_zsh_history

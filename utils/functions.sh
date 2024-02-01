@@ -12,7 +12,7 @@ link_dir () {
     fi
 
     echo "Creating symbolic links for $dest"
-    sudo ln -s "$src" "$dest"
+    sudo ln -sfv "$src" "$dest"
 }
 
 clone_git_repo () {
