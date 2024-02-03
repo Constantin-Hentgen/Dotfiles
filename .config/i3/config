@@ -8,7 +8,7 @@
 exec_always picom -f
 
 # custom status bar (polybar)
-exec_always --no-startup-id polybar
+exec_always --no-startup-id polybar -r
 
 # proper borders
 exec_always --no-startup-id /home/constantin/xborder/xborders --smart-hide-border --config /home/constantin/xborder/config.json
@@ -112,7 +112,7 @@ bindsym $mod+Shift+0x2f move container to workspace 9
 bindsym $mod+Shift+0x2a move container to workspace 10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+z restart

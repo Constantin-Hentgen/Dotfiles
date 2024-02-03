@@ -23,14 +23,12 @@ i3lock \
 --wrong-color=$TEXT          \
 --time-color=$TEXT           \
 --date-color=$TEXT           \
---layout-color=$TEXT         \
 --keyhl-color=$WRONG         \
 --bshl-color=$WRONG          \
 \
 --screen 1                   \
---blur 9                     \
+--blur 9.5                     \
 --clock                      \
 --indicator                  \
---time-str="%H:%M:%S"        \
---date-str="%A, %Y-%m-%d"       \
---keylayout 1                \
+--time-str="%H:%M"        \
+--date-str="%A %d/%m/%Y"       \

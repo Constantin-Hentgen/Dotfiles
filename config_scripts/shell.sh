@@ -63,6 +63,7 @@ install_zsh_autosuggestions() {
     fi
 }
 
+# enable zsh history and ctrl+<-/-> to jump between words in zsh
 create_zsh_history() {
   local history_file=~/.zsh_history
   local zshrc_file=~/.zshrc
@@ -76,6 +77,8 @@ create_zsh_history() {
   echo "HISTSIZE=10000" >> "$zshrc_file"
   echo "SAVEHIST=10000" >> "$zshrc_file"
   echo "setopt appendhistory" >> "$zshrc_file"
+  echo 'bindkey "^[[1;5C" forward-word' >> "$zshrc_file"
+  echo 'bindkey "^[[1;5D" backward-word' >> "$zshrc_file"
 }
 
 
