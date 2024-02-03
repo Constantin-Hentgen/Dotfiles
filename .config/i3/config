@@ -120,6 +120,9 @@ bindsym $mod+Shift+w exec shutdown now
 
 bindsym $mod+j exec "$HOME/Dotfiles/config_scripts/lock.sh"
 
+bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set +10%
+
 bindsym $mod+Shift+e exec i3-msg exit
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -155,7 +158,7 @@ bindsym $mod+Shift+o exec "~/.i3/lock.sh"
 exec_always feh --bg-fill ~/Pictures/wallpaper.jpg
 
 # default gaps
-gaps inner 15
+gaps inner 10
 gaps outer 0
 
 # gaps
