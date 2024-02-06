@@ -112,7 +112,7 @@ bindsym $mod+Shift+0x2f move container to workspace 9
 bindsym $mod+Shift+0x2a move container to workspace 10
 
 # reload the configuration file
-bindsym $mod+c reload
+bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+z restart
@@ -120,8 +120,13 @@ bindsym $mod+Shift+w exec shutdown now
 
 bindsym $mod+j exec "$HOME/Dotfiles/config_scripts/lock.sh"
 
-bindsym XF86MonBrightnessUp exec brightnessctl set +10%
-bindsym XF86MonBrightnessDown exec brightnessctl set +10%
+# brightness
+bindsym $mod+Shift+h "exec brightnessctl set 10%-"
+bindsym $mod+Shift+f "exec brightnessctl set +10%"
+
+# volume
+bindsym $mod+Shift+q "exec pactl set-sink-volume 0 -5%"
+bindsym $mod+Shift+g "exec pactl set-sink-volume 0 +5%"
 
 bindsym $mod+Shift+e exec i3-msg exit
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -155,7 +160,8 @@ bindsym $mod+l mode "resize"
 # i3lock shortcut
 bindsym $mod+Shift+o exec "~/.i3/lock.sh"
 
-exec_always feh --bg-fill ~/Pictures/wallpaper.jpg
+exec_always feh -F ~/Pictures/forrest.jpg
+exec_always xrandr --output eDP --mode 1920x1080 --rate 60.01 --output HDMI-A-0 --mode 1920x1080 --rate 144.00 --primary --right-of eDP
 
 # default gaps
 gaps inner 10
@@ -171,7 +177,7 @@ set $mode_gaps_top Top Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_right Right Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_bottom Bottom Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_left Left Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
+bindsym $mod+Shift+j mode "$mode_gaps"
 
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"
