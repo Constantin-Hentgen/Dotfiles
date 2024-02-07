@@ -13,6 +13,18 @@ exec_always --no-startup-id polybar -r
 # proper borders
 exec_always --no-startup-id /home/constantin/xborder/xborders --smart-hide-border --config /home/constantin/xborder/config.json
 
+# wallpaper and monitor management
+# exec_always feh -F ~/Pictures/forrest.jpg
+
+# autorandr
+
+# docked
+# xrandr --output eDP --off --output HDMI-A-0 --mode 1920x1080 --rate 144.00 --primary
+# mobile
+# xrandr --output eDP --auto
+
+exec_always autorandr --change
+
 
 set $mod Mod1
 default_border pixel 0
@@ -159,9 +171,6 @@ bindsym $mod+l mode "resize"
 
 # i3lock shortcut
 bindsym $mod+Shift+o exec "~/.i3/lock.sh"
-
-exec_always feh -F ~/Pictures/forrest.jpg
-exec_always xrandr --output eDP --mode 1920x1080 --rate 60.01 --output HDMI-A-0 --mode 1920x1080 --rate 144.00 --primary --right-of eDP
 
 # default gaps
 gaps inner 10

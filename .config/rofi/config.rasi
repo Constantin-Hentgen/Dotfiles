@@ -2,7 +2,7 @@ configuration {
   display-drun: "";
   display-window: "Windows:";
   drun-display-format: "{name}";
-  font: "JetBrainsMono Nerd Font Medium 16";
+  font: "Fira Code Retina 12";
   modi: "window,run,drun";
   
   // enabling the icons
@@ -18,7 +18,7 @@ configuration {
   bg-selected: #C5C8C6FF;
 
   fg: #cdd6f4;
-  fg-alt: #7f849c;
+  fg-alt: #cdd6f4;
 
   
   border: 0;
