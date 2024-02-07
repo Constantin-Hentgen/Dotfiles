@@ -130,7 +130,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+z restart
 bindsym $mod+Shift+w exec shutdown now
 
-bindsym $mod+j exec "$HOME/Dotfiles/config_scripts/lock.sh"
+bindsym $mod+j exec "$HOME/Dotfiles/config_scripts/lock.sh --time-font=Fira\ Code\ Retina"
 
 # brightness
 bindsym $mod+Shift+h "exec brightnessctl set 10%-"
