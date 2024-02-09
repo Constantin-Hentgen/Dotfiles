@@ -4,6 +4,8 @@
 [profiles]
   [[default]]
     icon_bell = False
+    background_darkness = 0.9
+    background_type = transparent
     font = Fira Code weight=450 16
     show_titlebar = False
     scrollbar_position = hidden

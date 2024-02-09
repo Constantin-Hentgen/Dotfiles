@@ -2,7 +2,7 @@ configuration {
   display-drun: "";
   display-window: "Windows:";
   drun-display-format: "{name}";
-  font: "Fira Code Retina 12";
+  font: "Fira Code Retina 10";
   modi: "window,run,drun";
   
   // enabling the icons
@@ -34,7 +34,7 @@ window {
 }
 
 element {
-  padding: 8 12;
+  padding: 6 6;
   background-color: transparent;
   text-color: @fg-alt;
 }
@@ -51,13 +51,13 @@ element-text {
 }
 
 element-icon {
-  size: 14;
+  size: 20;
   padding: 0 10 0 0;
   background-color: transparent;
 }
 
 entry {
-  padding: 12;
+  padding: 8;
   background-color: @bg-alt;
   text-color: @fg;
 }
@@ -80,7 +80,7 @@ mainbox {
 
 prompt {
   enabled: true;
-  padding: 12 0 0 12;
+  padding: 10 0 0 10;
   background-color: @bg-alt;
   text-color: @fg;
 }
