@@ -41,4 +41,7 @@ install_dnf_packages code
 install_dnf_packages fira-code-fonts
 # Note: Manual download required for JetBrains Mono Nerd Font and FiraCode from Nerd Fonts
 
+# i3 theme
+https://github.com/adi1090x/polybar-themes
+
 echo "Installation complete!"

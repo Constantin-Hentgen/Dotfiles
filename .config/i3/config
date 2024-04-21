@@ -82,6 +82,15 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
+# Screenshots
+bindsym Print exec --no-startup-id maim --select | xclip -selection clipboard -target image/png
+bindsym Shift+Print exec --no-startup-id maim | xclip -selection clipboard -target image/png
+
+## Clipboard Screenshots
+bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+k layout stacking
 bindsym $mod+z layout tabbed
@@ -92,6 +101,10 @@ bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 # bindsym $mod+space focus mode_toggle
+
+# toggle us keyboard
+bindsym $mod+u exec --no-startup-id setxkbmap -layout us
+bindsym $mod+Escape exec --no-startup-id setxkbmap -layout fr -variant bepo_afnor
 
 # focus the parent container
 bindsym $mod+q focus parent
@@ -127,7 +140,7 @@ bindsym $mod+Shift+0x2a move container to workspace 10
 bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+z restart
+bindsym $mod+Shift+j restart
 bindsym $mod+Shift+w exec shutdown now
 
 bindsym $mod+j exec "$HOME/Dotfiles/config_scripts/lock.sh --time-font=Fira\ Code\ Retina"
@@ -151,10 +164,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym n resize shrink width 10 px or 10 ppt
+        bindsym t resize shrink width 10 px or 10 ppt
         bindsym s resize grow height 10 px or 10 ppt
         bindsym r resize shrink height 10 px or 10 ppt
-        bindsym t resize grow width 10 px or 10 ppt
+        bindsym n resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -173,7 +186,7 @@ bindsym $mod+l mode "resize"
 bindsym $mod+Shift+o exec "~/.i3/lock.sh"
 
 # default gaps
-gaps inner 10
+gaps inner 0
 gaps outer 0
 
 # gaps
@@ -186,7 +199,6 @@ set $mode_gaps_top Top Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_right Right Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_bottom Bottom Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_left Left Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+j mode "$mode_gaps"
 
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"

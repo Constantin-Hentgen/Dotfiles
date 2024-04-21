@@ -13,8 +13,8 @@ configuration {
 @theme "/dev/null"
 
 * {
-  bg: #282A2E99;
-  bg-alt: #373B4199;
+  bg: #00000099;
+  bg-alt: #00000095;
   bg-selected: #C5C8C6FF;
 
   fg: #cdd6f4;
@@ -70,7 +70,7 @@ inputbar {
 listview {
   background-color: @bg;
   columns: 1;
-  lines: 7;
+  lines: 15;
 }
 
 mainbox {
