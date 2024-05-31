@@ -11,26 +11,18 @@ exec_always picom -f
 exec_always --no-startup-id polybar -r
 
 # proper borders
-exec_always --no-startup-id /home/constantin/xborder/xborders --smart-hide-border --config /home/constantin/xborder/config.json
+# exec_always --no-startup-id /home/constantin/xborder/xborders --smart-hide-border --config /home/constantin/xborder/config.json
 
 # wallpaper and monitor management
-# exec_always feh -F ~/Pictures/forrest.jpg
+exec_always --no-startup-id nitrogen --restore
 
 # autorandr
 
-# docked
-# xrandr --output eDP --off --output HDMI-A-0 --mode 1920x1080 --rate 144.00 --primary
-# mobile
-# xrandr --output eDP --auto
-
 exec_always autorandr --change
 
-
 set $mod Mod1
-default_border pixel 0
-default_floating_border pixel 0
 
-font pango:JetBrainsMono Nerd Font 14
+font pango:Liberation Mono 14
 floating_modifier $mod
 
 # start a terminal
