@@ -1,6 +1,17 @@
 ---
 # ansible/roles/terminator/tasks/main.yml
 
+- name: Check if the terminator directory exists
+  stat:
+    path: "/home/{{ username }}/.config/terminator"
+  register: folder_check
+
+- name: Delete the existing /home/{{ username }}/.config/terminator if it exists
+  file:
+    path: "/home/{{ username }}/.config/terminator"
+    state: absent
+  when: folder_check.stat.exists
+
 - name: Create a symbolic link 
   file:
     src: "{{ playbook_dir }}/roles/terminator/files/terminator"

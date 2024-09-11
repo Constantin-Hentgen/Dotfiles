@@ -1,6 +1,17 @@
 ---
 # ansible/roles/polybar/tasks/main.yml
 
+- name: Check if the polybar directory exists
+  stat:
+    path: "/home/{{ username }}/.config/polybar"
+  register: folder_check
+
+- name: Delete the existing /home/{{ username }}/.config/polybar if it exists
+  file:
+    path: "/home/{{ username }}/.config/polybar"
+    state: absent
+  when: folder_check.stat.exists
+
 - name: Create a symbolic link 
   file:
     src: "{{ playbook_dir }}/roles/polybar/files/polybar"

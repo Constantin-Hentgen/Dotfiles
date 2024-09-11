@@ -1,6 +1,17 @@
 ---
 # ansible/roles/autorandr/tasks/main.yml
 
+- name: Check if the autorandr directory exists
+  stat:
+    path: "/home/{{ username }}/.config/autorandr"
+  register: folder_check
+
+- name: Delete the existing /home/{{ username }}/.config/autorandr if it exists
+  file:
+    path: "/home/{{ username }}/.config/autorandr"
+    state: absent
+  when: folder_check.stat.exists
+
 - name: Create a symbolic link 
   file:
     src: "{{ playbook_dir }}/roles/autorandr/files/autorandr"

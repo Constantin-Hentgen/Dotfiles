@@ -1,7 +1,5 @@
 set number
 syntax on
-Plug 'junegunn/fzf.vim'
-
 
 noremap " 1
 noremap « 2

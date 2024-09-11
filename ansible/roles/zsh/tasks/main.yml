@@ -1,6 +1,17 @@
 ---
 # ansible/roles/zsh/tasks/main.yml
 
+- name: Check if the zsh directory exists
+  stat:
+    path: "/home/{{ username }}/.zshrc"
+  register: folder_check
+
+- name: Delete the existing /home/{{ username }}/.zsh if it exists
+  file:
+    path: "/home/{{ username }}/.zshrc"
+    state: absent
+  when: folder_check.stat.exists
+
 - name: Create a symbolic link 
   file:
     src: "{{ playbook_dir }}/roles/zsh/files/.zshrc"

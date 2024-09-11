@@ -1,6 +1,17 @@
 ---
 # ansible/roles/i3/tasks/main.yml
 
+- name: Check if the i3 directory exists
+  stat:
+    path: "/home/{{ username }}/.config/i3"
+  register: folder_check
+
+- name: Delete the existing /home/{{ username }}/.config/i3 if it exists
+  file:
+    path: "/home/{{ username }}/.config/i3"
+    state: absent
+  when: folder_check.stat.exists
+
 - name: Create a symbolic link 
   file:
     src: "{{ playbook_dir }}/roles/i3/files/i3"
