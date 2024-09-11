@@ -16,29 +16,29 @@ Before you begin, ensure you have met the following requirements:
 
 - A fresh installation of Fedora Linux with [i3wm](https://i3wm.org/).
 
-https://fedoraproject.org/spins/i3/
+[https://fedoraproject.org/spins/i3/](https://fedoraproject.org/spins/i3/)
 
-(https://download.fedoraproject.org/pub/fedora/linux/releases/39/Spins/x86_64/iso/Fedora-i3-Live-x86_64-39-1.5.iso)
-
+Set the keyboard layout to BÉPO AFNOR:
 
 ```bash
 setxkbmap -layout fr -variant bepo_afnor
 ```
 
+Install [ansible](https://www.ansible.com/):
+
+```bash
+dnf install ansible
+```
+
 ## Installation
 
-To get started, follow these steps:
-
-1. Clone this repository to your local machine:
+Clone this repository to your local machine:
 
 ```bash
 cd ~
 git clone https://github.com/Constantin-Hentgen/Dotfiles.git
 cd Dotfiles
-chmod +x run.sh
-./run.sh
-```
-
-```bash
 ansible-playbook ansible/playbook.yml --ask-become-pass -e "username=YOUR_USERNAME"
 ```
+
+You can get your username by running the command `whoami`.
