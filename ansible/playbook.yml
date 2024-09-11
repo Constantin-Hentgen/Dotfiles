@@ -1,0 +1,9 @@
+---
+- name: Configure my system
+  hosts: localhost
+  become: true
+
+  roles:
+    - vim
+    - zsh
+

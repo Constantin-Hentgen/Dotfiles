@@ -1,0 +1,25 @@
+[global_config]
+  borderless = True
+[keybindings]
+  zoom_in = <Alt>n
+  zoom_out = <Alt>r
+[profiles]
+  [[default]]
+    icon_bell = False
+    background_darkness = 0.9
+    background_type = transparent
+    font = Fira Code weight=450 12
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_lines = 10000
+    scrollback_infinite = True
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]

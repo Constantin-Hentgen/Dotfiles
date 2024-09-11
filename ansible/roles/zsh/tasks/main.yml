@@ -1,0 +1,28 @@
+---
+# ansible/roles/zsh/tasks/main.yml
+
+- name: Verify if there is already a .vmirc file
+  stat:
+    path: ~/.zshrc
+  register: zshrc_check
+
+- name: Save the old .zshrc if it exists
+  when: zshrc_check.stat.exists
+  copy:
+    src: ~/.zshrc
+    dest: ~/.zshrc.backup
+    backup: yes
+
+- name: Delete the old .zshrc if it exists
+  file:
+    path: ~/.zshrc
+    state: absent
+  when: zshrc_check.stat.exists
+
+- name: Create a symbolic link 
+  file:
+    src: "{{ playbook_dir }}/../config_files/.zshrc"
+    dest: ~/.zshrc
+    state: link
+    force: yes
+
