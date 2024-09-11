@@ -1,0 +1,10 @@
+---
+# ansible/roles/autorandr/tasks/main.yml
+
+- name: Create a symbolic link 
+  file:
+    src: "{{ playbook_dir }}/roles/autorandr/files/autorandr"
+    dest: "/home/{{ username }}/.config/autorandr"
+    state: link
+    force: yes
+

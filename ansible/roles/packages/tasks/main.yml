@@ -1,7 +1,7 @@
 ---
+# ansible/roles/packages/tasks/main.yml
+
 - name: Installation et configuration de packages sur Fedora
-  hosts: localhost
-  become: true
   vars:
     # Définition des variables de packages pour faciliter la gestion
     dnf_packages:

@@ -3,8 +3,8 @@
 
 - name: Create a symbolic link 
   file:
-    src: "{{ playbook_dir }}/roles/i3/files/i3/"
-    dest: "/home/{{ username }}/.config/i3/"
+    src: "{{ playbook_dir }}/roles/i3/files/i3"
+    dest: "/home/{{ username }}/.config/i3"
     state: link
     force: yes
 
