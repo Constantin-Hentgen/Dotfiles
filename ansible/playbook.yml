@@ -38,8 +38,8 @@
        - fira-code-fonts
        - xrandr
   roles:
-   - packages
    - zsh
+   - packages
    - vim
    - polybar
    - i3

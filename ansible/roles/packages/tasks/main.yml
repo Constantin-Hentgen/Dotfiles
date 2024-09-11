@@ -10,3 +10,52 @@
     name: "{{ f_packages }}"
     state: present
 
+- name: Install flatpak for Flathub support
+  dnf:
+    name: flatpak
+    state: present
+  become: true
+
+- name: Add Flathub repository
+  command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  args:
+    creates: /var/lib/flatpak/repo/flathub
+  become: true
+
+- name: Install Spotify via Flatpak
+  flatpak:
+    name: com.spotify.Client
+    state: present
+    remote: flathub
+  become: true
+
+- name: Install dnf-plugins-core for Brave Browser setup
+  dnf:
+    name: dnf-plugins-core
+    state: present
+  become: true
+
+- name: Add Brave Browser repository
+  get_url:
+    url: https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+    dest: /etc/yum.repos.d/brave-browser.repo
+  become: true
+
+- name: Import Brave Browser GPG key
+  rpm_key:
+    state: present
+    key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+  become: true
+
+- name: Install Brave Browser
+  dnf:
+    name: brave-browser
+    state: present
+  become: true
+
+- name: Install Powerlevel10k for Zsh
+  git:
+    repo: https://github.com/romkatv/powerlevel10k.git
+    dest: "/home/{{ username }}/powerlevel10k"
+    update: yes
+  become: false
