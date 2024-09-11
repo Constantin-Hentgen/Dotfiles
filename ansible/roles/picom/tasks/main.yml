@@ -1,0 +1,10 @@
+---
+# ansible/roles/vim/tasks/main.yml
+
+- name: Create a symbolic link 
+  file:
+    src: "{{ playbook_dir }}/../config_files/.config/picom"
+    dest: ~/.config/picom
+    state: link
+    force: yes
+

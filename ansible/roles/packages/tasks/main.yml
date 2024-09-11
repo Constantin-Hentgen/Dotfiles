@@ -1,0 +1,101 @@
+---
+- name: Installation et configuration de packages sur Fedora
+  hosts: localhost
+  become: true
+  vars:
+    # Définition des variables de packages pour faciliter la gestion
+    dnf_packages:
+      - curl
+      - zsh
+      - gcc
+      - gcc-c++
+      - ninja-build
+      - bat
+      - python3
+      - cairo-devel
+      - pkg-config
+      - python3-devel
+      - autoconf
+      - automake
+      - fontconfig
+      - libev-devel
+      - libjpeg-turbo-devel
+      - libXinerama
+      - libxkbcommon-devel
+      - libxkbcommon-x11-devel
+      - libXrandr
+      - pam-devel
+      - pkgconf
+      - xcb-util-image-devel
+      - xcb-util-xrm-devel
+      - git
+      - tldr
+      - terminator
+      - tmux
+      - polybar
+      - picom
+      - rofi
+      - dnf-plugins-core
+      - fira-code-fonts
+      - nitrogen
+
+    flatpak_apps:
+      - com.spotify.Client
+
+    brave_repo_url: "https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo"
+    brave_gpg_key: "https://brave-browser-rpm-release.s3.brave.com/brave-core.asc"
+
+  tasks:
+    - name: Mettre à jour le système et les dépôts
+      dnf:
+        update_cache: yes
+        name: "*"
+        state: latest
+
+    - name: Installer des paquets avec DNF
+      dnf:
+        name: "{{ dnf_packages }}"
+        state: present
+
+    - name: Installer Flatpak si nécessaire
+      dnf:
+        name: flatpak
+        state: present
+
+    - name: Ajouter le dépôt Flatpak Flathub
+      command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+      args:
+        creates: /var/lib/flatpak/repo/flathub
+
+    - name: Installer des applications Flatpak
+      flatpak:
+        name: "{{ item }}"
+        state: present
+        remote: flathub
+      loop: "{{ flatpak_apps }}"
+
+    - name: Ajouter le dépôt Brave pour Fedora
+      get_url:
+        url: "{{ brave_repo_url }}"
+        dest: /etc/yum.repos.d/brave-browser.repo
+
+    - name: Importer la clé GPG pour Brave
+      rpm_key:
+        state: present
+        key: "{{ brave_gpg_key }}"
+
+    - name: Installer Brave Browser
+      dnf:
+        name: brave-browser
+        state: present
+
+    - name: Cloner le dépôt i3 Polybar Themes
+      git:
+        repo: https://github.com/adi1090x/polybar-themes
+        dest: ~/polybar-themes
+        clone: yes
+
+    - name: Finaliser l'installation
+      debug:
+        msg: "Installation complète !"
+

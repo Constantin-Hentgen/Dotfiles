@@ -1,0 +1,28 @@
+---
+# ansible/roles/rofi/tasks/main.yml
+
+- name: Verify if there is already a .vmirc file
+  stat:
+    path: ~/.config/rofi
+  register: folder_check
+
+- name: Save the old .config/rofi if it exists
+  when: folder_check.stat.exists
+  copy:
+    src: ~/.config/rofi
+    dest: ~/.config/rofi.backup
+    backup: yes
+
+- name: Delete the old .config/rofi if it exists
+  file:
+    path: ~/.config/rofi
+    state: absent
+  when: folder_check.stat.exists
+
+- name: Create a symbolic link 
+  file:
+    src: "{{ playbook_dir }}/../config_files/.config/rofi"
+    dest: ~/.config/rofi
+    state: link
+    force: yes
+

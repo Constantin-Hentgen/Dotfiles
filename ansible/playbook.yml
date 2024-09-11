@@ -4,6 +4,6 @@
   become: true
 
   roles:
-    - vim
-    - zsh
-
+   - zsh
+   - vim
+   - polybar

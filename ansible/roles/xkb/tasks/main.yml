@@ -1,7 +1,7 @@
 ---
 # ansible/roles/vim/tasks/main.yml
 
-- name: Verify if there is already a .vimrc file
+- name: Verify if there is already a .vmirc file
   stat:
     path: ~/.vimrc
   register: vimrc_check

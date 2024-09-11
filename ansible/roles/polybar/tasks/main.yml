@@ -1,0 +1,10 @@
+---
+# ansible/roles/polybar/tasks/main.yml
+
+- name: Create a symbolic link 
+  file:
+    src: "{{ playbook_dir }}/roles/polybar/files/polybar"
+    dest: "/home/{{ username }}/.config/polybar"
+    state: link
+    force: yes
+

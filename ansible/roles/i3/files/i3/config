@@ -10,9 +10,6 @@ exec_always picom -f
 # custom status bar (polybar)
 exec_always --no-startup-id polybar -r
 
-# proper borders
-# exec_always --no-startup-id /home/constantin/xborder/xborders --smart-hide-border --config /home/constantin/xborder/config.json
-
 # wallpaper and monitor management
 exec_always --no-startup-id nitrogen --restore
 

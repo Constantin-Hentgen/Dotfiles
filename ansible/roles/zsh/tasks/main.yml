@@ -1,7 +1,7 @@
 ---
 # ansible/roles/zsh/tasks/main.yml
 
-- name: Verify if there is already a .vmirc file
+- name: Verify if there is already a .vimrc file
   stat:
     path: ~/.zshrc
   register: zshrc_check
