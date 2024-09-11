@@ -1,10 +1,10 @@
 ---
-# ansible/roles/vim/tasks/main.yml
+# ansible/roles/picom/tasks/main.yml
 
 - name: Create a symbolic link 
   file:
-    src: "{{ playbook_dir }}/../config_files/.config/picom"
-    dest: ~/.config/picom
+    src: "{{ playbook_dir }}/roles/picom/files/picom"
+    dest: "/home/{{ username }}/.config/picom"
     state: link
     force: yes
 

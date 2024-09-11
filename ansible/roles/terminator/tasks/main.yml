@@ -1,28 +1,10 @@
 ---
-# ansible/roles/vim/tasks/main.yml
-
-- name: Verify if there is already a .vmirc file
-  stat:
-    path: ~/.vimrc
-  register: vimrc_check
-
-- name: Save the old .vimrc if it exists
-  when: vimrc_check.stat.exists
-  copy:
-    src: ~/.vimrc
-    dest: ~/.vimrc.backup
-    backup: yes
-
-- name: Delete the old .vimrc if it exists
-  file:
-    path: ~/.vimrc
-    state: absent
-  when: vimrc_check.stat.exists
+# ansible/roles/terminator/tasks/main.yml
 
 - name: Create a symbolic link 
   file:
-    src: "{{ playbook_dir }}/../config_files/.vimrc"
-    dest: ~/.vimrc
+    src: "{{ playbook_dir }}/roles/terminator/files/terminator"
+    dest: "/home/{{ username }}/.config/terminator"
     state: link
     force: yes
 
