@@ -59,3 +59,21 @@
     dest: "/home/{{ username }}/powerlevel10k"
     update: yes
   become: false
+
+- name: Get the path of Zsh
+  command: which zsh
+  register: zsh_path
+  become: false
+
+- name: Set Zsh as the default shell
+  user:
+    name: "{{ username }}"
+    shell: "{{ zsh_path.stdout }}"
+  become: true
+
+- name: Install Zsh Autosuggestions plugin
+  git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions
+    dest: "/home/{{ username }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    update: yes
+  become: false

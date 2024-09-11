@@ -6,8 +6,6 @@ This repository contains my personal Linux configuration files for tmux, nvim, i
 
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Configuration](#configuration)
-- [Tools and Software](#tools-and-software)
 - [License](#license)
 
 ## Prerequisites
@@ -42,3 +40,5 @@ ansible-playbook ansible/playbook.yml --ask-become-pass -e "username=YOUR_USERNA
 ```
 
 You can get your username by running the command `whoami`.
+
+Now may want to reboot, keep in mind that the keyboard layout switched.
