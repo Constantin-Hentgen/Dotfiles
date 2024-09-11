@@ -39,4 +39,6 @@ chmod +x run.sh
 ./run.sh
 ```
 
-`/usr/share/X11/xorg.conf.d/40-libinput.conf`
+```bash
+ansible-playbook ansible/playbook.yml --ask-become-pass -e "username=YOUR_USERNAME"
+```

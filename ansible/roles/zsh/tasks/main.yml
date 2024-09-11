@@ -15,7 +15,7 @@
 - name: Create a symbolic link 
   file:
     src: "{{ playbook_dir }}/roles/zsh/files/.zshrc"
-    dest: "/home/{{ username }}/.config/.zshrc"
+    dest: "/home/{{ username }}/.zshrc"
     state: link
     force: yes
 

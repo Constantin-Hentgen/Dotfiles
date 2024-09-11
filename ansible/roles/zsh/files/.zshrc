@@ -13,8 +13,7 @@ export LANG="en_US.utf8"
 export PATH="$HOME/.poetry/bin:$PATH"
 
 alias history="history 1"
-alias t="fzf"
-alias o="vi $(fzf)"
+alias t='sh -c "vi \$(fzf)"'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

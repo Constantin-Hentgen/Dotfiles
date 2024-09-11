@@ -2,8 +2,43 @@
 - name: Configure my system
   hosts: localhost
   become: true
-
+  vars:
+     f_packages:
+       - curl
+       - zsh
+       - gcc
+       - gcc-c++
+       -  ninja-build
+       - bat
+       - python3
+       - cairo-devel
+       - pkg-config
+       - python3-devel
+       - autoconf
+       - automake
+       - fontconfig
+       - libev-devel
+       - libjpeg-turbo-devel
+       - libXinerama
+       - libxkbcommon-devel
+       - libxkbcommon-x11-devel
+       - libXrandr
+       - pam-devel
+       - pkgconf
+       - xcb-util-image-devel
+       - xcb-util-xrm-devel
+       - git
+       - tldr
+       - terminator
+       - tmux
+       - polybar
+       - picom
+       - rofi
+       - dnf-plugins-core
+       - fira-code-fonts
+       - xrandr
   roles:
+   - packages
    - zsh
    - vim
    - polybar
