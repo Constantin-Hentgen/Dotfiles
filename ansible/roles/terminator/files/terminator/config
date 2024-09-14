@@ -1,8 +1,8 @@
 [global_config]
   borderless = True
 [keybindings]
-  zoom_in = <Alt>n
-  zoom_out = <Alt>r
+  zoom_in = <Primary>plus
+  zoom_out = <Primary>minus
 [profiles]
   [[default]]
     icon_bell = False
