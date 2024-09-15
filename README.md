@@ -6,7 +6,6 @@ This repository contains my personal Linux configuration files for tmux, nvim, i
 
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [License](#license)
 
 ## Prerequisites
 
@@ -16,17 +15,13 @@ Before you begin, ensure you have met the following requirements:
 
 [https://fedoraproject.org/spins/i3/](https://fedoraproject.org/spins/i3/)
 
-Set the keyboard layout to BÉPO AFNOR:
+If needed, set the keyboard layout to BÉPO AFNOR:
 
 ```bash
 setxkbmap -layout fr -variant bepo_afnor
 ```
 
-Install [ansible](https://www.ansible.com/):
-
-```bash
-dnf install ansible
-```
+Install [ansible](https://www.ansible.com/): [https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html](https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html)
 
 ## Installation
 

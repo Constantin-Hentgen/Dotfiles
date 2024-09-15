@@ -22,7 +22,7 @@ alias ....="cd ../../.."
 
 # Git aliases
 alias gs="git status"
-alias gl="git log"
+alias gl="git log --oneline --graph --decorate --all"
 alias gp="git pull"
 alias gc="git commit -m"
 alias gco="git checkout"
