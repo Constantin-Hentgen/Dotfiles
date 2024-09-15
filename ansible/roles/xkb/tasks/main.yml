@@ -1,7 +1,7 @@
 ---
 # ansible/roles/vim/tasks/main.yml
 
-- name: Create a symbolic link 
+- name: Create a symbolic link
   file:
     src: "{{ playbook_dir }}/roles/xkb/files/00-keyboard.conf"
     dest: "/usr/share/X11/xorg.conf.d/00-keyboard.conf"

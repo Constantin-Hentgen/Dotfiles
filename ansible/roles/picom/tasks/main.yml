@@ -1,7 +1,7 @@
 ---
 # ansible/roles/picom/tasks/main.yml
 
-- name: Check if the picom directory exists
+- name: Check if /home/{{ username }}/.config/picom exists
   stat:
     path: "/home/{{ username }}/.config/picom"
   register: folder_check
@@ -12,7 +12,7 @@
     state: absent
   when: folder_check.stat.exists
 
-- name: Create a symbolic link 
+- name: Create a symbolic link
   file:
     src: "{{ playbook_dir }}/roles/picom/files/picom"
     dest: "/home/{{ username }}/.config/picom"

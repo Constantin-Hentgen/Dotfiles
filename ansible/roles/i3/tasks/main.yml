@@ -1,7 +1,7 @@
 ---
 # ansible/roles/i3/tasks/main.yml
 
-- name: Check if the i3 directory exists
+- name: Check if /home/{{ username }}/.config/i3 exists
   stat:
     path: "/home/{{ username }}/.config/i3"
   register: folder_check
@@ -12,7 +12,7 @@
     state: absent
   when: folder_check.stat.exists
 
-- name: Create a symbolic link 
+- name: Create a symbolic link
   file:
     src: "{{ playbook_dir }}/roles/i3/files/i3"
     dest: "/home/{{ username }}/.config/i3"

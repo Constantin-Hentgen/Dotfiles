@@ -1,7 +1,7 @@
 ---
 # ansible/roles/terminator/tasks/main.yml
 
-- name: Check if the terminator directory exists
+- name: Check if /home/{{ username }}/.config/terminator exists
   stat:
     path: "/home/{{ username }}/.config/terminator"
   register: folder_check
@@ -12,7 +12,7 @@
     state: absent
   when: folder_check.stat.exists
 
-- name: Create a symbolic link 
+- name: Create a symbolic link
   file:
     src: "{{ playbook_dir }}/roles/terminator/files/terminator"
     dest: "/home/{{ username }}/.config/terminator"

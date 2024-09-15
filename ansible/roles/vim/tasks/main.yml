@@ -1,7 +1,7 @@
 ---
 # ansible/roles/vim/tasks/main.yml
 
-- name: Create a symbolic link 
+- name: Create a symbolic link
   file:
     src: "{{ playbook_dir }}/roles/vim/files/.vimrc"
     dest: "/home/{{ username }}/.vimrc"
