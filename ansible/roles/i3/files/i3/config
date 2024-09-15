@@ -4,7 +4,7 @@
 
 
 # display management
-exec_always autorandr --load docked 
+exec_always autorandr --load docked
 
 # wallpaper and monitor management
 exec_always --no-startup-id nitrogen --restore --set-zoom-fill
@@ -12,7 +12,7 @@ exec_always --no-startup-id nitrogen --restore --set-zoom-fill
 # status bar
 exec_always --no-startup-id polybar -r
 
-# windows transparency and shadows 
+# windows transparency and shadows
 exec_always picom -f
 
 # font family and size
@@ -23,7 +23,7 @@ set $mod Mod1
 floating_modifier $mod
 
 
-## KEYMAP SHORTCUTS 
+## KEYMAP SHORTCUTS
 
 # start a terminal
 bindsym $mod+Return exec terminator
