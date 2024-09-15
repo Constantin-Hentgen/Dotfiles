@@ -1,79 +1,32 @@
----
 # ansible/roles/packages/tasks/main.yml
 
-- name: Update the DNF package manager cache
-  dnf:
-    update_cache: yes
+---
 
-- name: Install the required packages using DNF
-  dnf:
-    name: "{{ f_packages }}"
+# FreeBSD-specific tasks
+- name: FreeBSD-specific tasks
+  ansible.builtin.pkgng:
+    name: '{{ packages_to_install }}'
     state: present
+  when: ansible_facts['distribution'] == 'FreeBSD'
+  ignore_errors: yes
 
-- name: Install flatpak for Flathub support
-  dnf:
-    name: flatpak
+# Fedora-specific tasks
+- name: Fedora-specific tasks
+  ansible.builtin.dnf:
+    name: '{{ packages_to_install }}'
     state: present
-  become: true
+  when: ansible_facts['distribution'] == 'Fedora'
+  ignore_errors: yes
 
-- name: Add Flathub repository
-  command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-  args:
-    creates: /var/lib/flatpak/repo/flathub
-  become: true
-
-- name: Install Spotify via Flatpak
-  flatpak:
-    name: com.spotify.Client
+# Debian-based-specific tasks
+- name: Debian-based-specific tasks
+  ansible.builtin.apt:
+    include_tasks: debian.yml
     state: present
-    remote: flathub
-  become: true
+  when: ansible_facts['os_family'] == 'Debian'
+  ignore_errors: yes
 
-- name: Install dnf-plugins-core for Brave Browser setup
-  dnf:
-    name: dnf-plugins-core
-    state: present
-  become: true
-
-- name: Add Brave Browser repository
-  get_url:
-    url: https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-    dest: /etc/yum.repos.d/brave-browser.repo
-  become: true
-
-- name: Import Brave Browser GPG key
-  rpm_key:
-    state: present
-    key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-  become: true
-
-- name: Install Brave Browser
-  dnf:
-    name: brave-browser
-    state: present
-  become: true
-
-- name: Install Powerlevel10k for Zsh
-  git:
-    repo: https://github.com/romkatv/powerlevel10k.git
-    dest: "/home/{{ username }}/powerlevel10k"
-    update: yes
-  become: false
-
-- name: Get the path of Zsh
-  command: which zsh
-  register: zsh_path
-  become: false
-
-- name: Set Zsh as the default shell
-  user:
-    name: "{{ username }}"
-    shell: "{{ zsh_path.stdout }}"
-  become: true
-
-- name: Install Zsh Autosuggestions plugin
-  git:
-    repo: https://github.com/zsh-users/zsh-autosuggestions
-    dest: "/home/{{ username }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
-    update: yes
-  become: false
+# Github cloning tasks
+- name: Github cloning tasks
+  include_tasks: cloning.yml
+  ignore_errors: yes

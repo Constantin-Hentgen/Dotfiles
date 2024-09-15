@@ -1,0 +1,27 @@
+---
+
+# ansible/roles/packages/tasks/cloning.yml
+
+- name: Install Powerlevel10k for Zsh
+  git:
+    repo: https://github.com/romkatv/powerlevel10k.git
+    dest: "/home/{{ username }}/powerlevel10k"
+    update: yes
+  become: false
+
+- name: Get the path of Zsh
+  command: which zsh
+  register: zsh_path
+  become: false
+
+- name: Set Zsh as the default shell
+  user:
+    name: "{{ username }}"
+    shell: "{{ zsh_path.stdout }}"
+
+- name: Install Zsh Autosuggestions plugin
+  git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions
+    dest: "/home/{{ username }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    update: yes
+  become: false
