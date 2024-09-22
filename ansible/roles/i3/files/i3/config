@@ -7,7 +7,7 @@
 exec_always autorandr --load docked
 
 # wallpaper and monitor management
-exec_always --no-startup-id nitrogen --restore --set-zoom-fill
+exec_always --no-startup-id bash -c "sleep 2; nitrogen --restore --set-zoom-fill"
 
 # status bar
 exec_always --no-startup-id polybar -r

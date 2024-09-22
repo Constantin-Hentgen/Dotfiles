@@ -23,9 +23,8 @@ alias ....="cd ../../.."
 # Git aliases
 alias gs="git status"
 alias gl="git log --oneline --graph --decorate --all"
-alias gp="git pull"
 alias gc="git commit -m"
-alias gco="git checkout"
+alias ga="git add --all"
 
 # keybinding for fzf (replacing CTR+R)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

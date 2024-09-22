@@ -22,9 +22,6 @@ set smartcase           " ...unless the search contains uppercase letters
 " Highlight all matches when searching
 set hlsearch
 
-" Enable mouse support
-set mouse=a             " Allow mouse usage in all modes
-
 " Set a better status line
 set laststatus=2        " Always show the status line
 

@@ -1,6 +1,13 @@
 # ansible/roles/packages/tasks/main.yml
 
 ---
+# OpenBSD-specific tasks
+- name: OpenBSD-specific tasks
+  ansible.builtin.pkgng:
+    name: '{{ packages_to_install }}'
+    state: present
+  when: ansible_facts['distribution'] == 'OpenBSD'
+  ignore_errors: yes
 
 # FreeBSD-specific tasks
 - name: FreeBSD-specific tasks
