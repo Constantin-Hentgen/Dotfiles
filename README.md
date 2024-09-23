@@ -11,12 +11,9 @@ This repository contains my personal Linux configuration files for tmux, nvim, i
 
 Before you begin, ensure you have met the following requirements:
 
-- A fresh installation of Fedora Linux with [i3wm](https://i3wm.org/).
-
-[https://fedoraproject.org/spins/i3/](https://fedoraproject.org/spins/i3/)
-
 If needed, set the keyboard layout to BÉPO AFNOR:
 
+install git
 ```bash
 setxkbmap -layout fr -variant bepo_afnor
 ```

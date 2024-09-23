@@ -18,6 +18,7 @@
        - xrandr
        - nitrogen
        - maim
+       - i3
   roles:
    - packages
    - zsh
