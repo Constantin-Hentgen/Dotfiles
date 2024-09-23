@@ -174,7 +174,6 @@ noremap G <
 noremap H >
 noremap F ?
 
-
 " Tab fait un Esc, Maj+Tab fait un Tab
 inoremap <Tab> <Esc>
 inoremap &lt;S-Tab> <Tab>

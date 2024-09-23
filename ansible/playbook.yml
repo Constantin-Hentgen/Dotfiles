@@ -17,6 +17,7 @@
        - fira-code-fonts
        - xrandr
        - nitrogen
+       - maim
   roles:
    - packages
    - zsh

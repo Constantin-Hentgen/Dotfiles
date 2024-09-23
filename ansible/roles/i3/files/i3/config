@@ -2,7 +2,6 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-
 # display management
 exec_always autorandr --load docked
 
