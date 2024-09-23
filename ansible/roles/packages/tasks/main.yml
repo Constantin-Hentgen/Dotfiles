@@ -3,7 +3,7 @@
 ---
 # OpenBSD-specific tasks
 - name: OpenBSD-specific tasks
-  ansible.builtin.pkgng:
+  community.general.openbsd_pkg:
     name: '{{ packages_to_install }}'
     state: present
   when: ansible_facts['distribution'] == 'OpenBSD'
@@ -11,7 +11,7 @@
 
 # FreeBSD-specific tasks
 - name: FreeBSD-specific tasks
-  ansible.builtin.pkgng:
+  community.general.openbsd_pkg:
     name: '{{ packages_to_install }}'
     state: present
   when: ansible_facts['distribution'] == 'FreeBSD'

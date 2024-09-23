@@ -23,6 +23,11 @@ setxkbmap -layout fr -variant bepo_afnor
 
 Install [ansible](https://www.ansible.com/): [https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html](https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html)
 
+Run:
+```bash
+ansible-galaxy collection install community.general
+```
+
 ## Installation
 
 Clone this repository to your local machine:
