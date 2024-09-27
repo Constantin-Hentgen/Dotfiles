@@ -19,6 +19,7 @@
        - nitrogen
        - maim
        - i3
+       - openvpn
   roles:
    - packages
    - zsh
