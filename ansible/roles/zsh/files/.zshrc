@@ -25,7 +25,7 @@ alias gs="git status"
 alias gl="git log --oneline --graph --decorate --all"
 alias gc="git commit -m"
 alias ga="git add --all"
-alias kali="podman run --privileged --cap-add=NET_RAW --cap-add=NET_ADMIN --env DISPLAY=$DISPLAY --volume /tmp/.X11-unix:/tmp/.X11-unix --device /dev/dri --rm -it kali-operational /bin/bash"
+alias kali="podman run --privileged --cap-add=NET_RAW --cap-add=NET_ADMIN --env DISPLAY=$DISPLAY --volume /tmp/.X11-unix:/tmp/.X11-unix --device /dev/dri -it kali-operational /bin/bash"
 
 # keybinding for fzf (replacing CTR+R)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
