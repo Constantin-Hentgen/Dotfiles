@@ -25,7 +25,26 @@ alias gs="git status"
 alias gl="git log --oneline --graph --decorate --all"
 alias gc="git commit -m"
 alias ga="git add --all"
-alias kali="podman run --privileged --cap-add=NET_RAW --cap-add=NET_ADMIN --env DISPLAY=$DISPLAY --volume /tmp/.X11-unix:/tmp/.X11-unix --device /dev/dri -it kali-operational /bin/bash"
+
+kali() {
+    local container_name="$1"
+
+    if [[ -z "$container_name" ]]; then
+        echo "Usage: kali <container_name>"
+        return 1
+    fi
+
+    # Check if the container exists (either running or stopped)
+    if podman container exists "$container_name"; then
+        echo "Starting container $container_name..."
+        podman start -ai "$container_name"
+    else
+        echo "Creating and starting container $container_name from image kali-operational..."
+        podman run --name "$container_name" --privileged --cap-add=NET_RAW --cap-add=NET_ADMIN \
+            --env DISPLAY=$DISPLAY --volume /tmp/.X11-unix:/tmp/.X11-unix --device /dev/dri \
+            -it kali-operational /bin/bash
+    fi
+}
 
 # keybinding for fzf (replacing CTR+R)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
