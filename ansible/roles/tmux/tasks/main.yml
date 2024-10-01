@@ -1,0 +1,10 @@
+---
+# ansible/roles/tmux/tasks/main.yml
+
+- name: Create a symbolic link
+  file:
+    src: "{{ playbook_dir }}/roles/tmux/files/.tmux.conf"
+    dest: "/home/{{ username }}/.tmux.conf"
+    state: link
+    force: yes
+
