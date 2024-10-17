@@ -5,6 +5,9 @@
 # display management
 exec_always autorandr --load docked
 
+# input engine
+exec --no-startup-id ibus-daemon -drx
+
 # wallpaper and monitor management
 exec_always --no-startup-id bash -c "sleep 2; nitrogen --restore --set-zoom-fill"
 

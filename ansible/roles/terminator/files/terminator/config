@@ -1,5 +1,6 @@
 [global_config]
   borderless = True
+  suppress_multiple_term_dialog = True
 [keybindings]
   zoom_in = <Primary>plus
   zoom_out = <Primary>minus
