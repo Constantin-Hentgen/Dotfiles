@@ -3,13 +3,11 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # display management
-exec_always autorandr --load docked
+exec_always --no-startup-id xrandr --output HDMI-A-0 --primary --auto --left-of eDP
+exec_always --no-startup-id --fullscreen --auto-zoom feh /home/constantin/Pictures/banc.jpeg
 
 # input engine
 exec --no-startup-id ibus-daemon -drx
-
-# wallpaper and monitor management
-exec_always --no-startup-id bash -c "sleep 2; nitrogen --restore --set-zoom-fill"
 
 # status bar
 exec_always --no-startup-id polybar -r

@@ -7,7 +7,7 @@
 [profiles]
   [[default]]
     icon_bell = False
-    background_darkness = 0.9
+    background_darkness = 0.85
     background_type = transparent
     font = Fira Code weight=450 12
     show_titlebar = False
