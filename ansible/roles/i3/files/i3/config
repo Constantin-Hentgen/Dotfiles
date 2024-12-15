@@ -4,7 +4,13 @@
 
 # display management
 exec_always --no-startup-id xrandr --output HDMI-A-0 --primary --auto --left-of eDP
-exec_always --no-startup-id --fullscreen --auto-zoom feh /home/constantin/Pictures/banc.jpeg
+exec_always --no-startup-id feh --fullscreen --auto-zoom /home/constantin/Pictures/banc.jpeg
+
+# Désactiver l'économie d'énergie et la mise en veille de l'écran
+exec_always --no-startup-id xset s off              # Désactiver l'économiseur d'écran
+exec_always --no-startup-id xset s noblank          # Désactiver le blanking de l'écran
+exec_always --no-startup-id xset -dpms              # Désactiver le gestionnaire d'énergie de l'écran
+
 
 # input engine
 exec --no-startup-id ibus-daemon -drx
